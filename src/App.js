@@ -1,18 +1,19 @@
-import React from 'react';
-import { CartProvider } from './context/cartContext';
-import Header from './components/Header';
-import Home from './pages/Home';
-import Footer from './components/Footer';
-import Cart from './components/Cart';
+import React from "react";
+import { CartProvider } from "./context/cartContext";
+
+import Home from "./pages/Home";
+
+import Checkout from "./pages/Checkout";
+import { Link, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <>
       <CartProvider>
-        <Header />
-        <Home />
-        <Footer />
-        <Cart />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="checkout" element={<Checkout />} />
+        </Routes>
       </CartProvider>
     </>
   );
