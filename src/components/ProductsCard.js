@@ -4,7 +4,7 @@ import cartContext from '../context/cartContext';
 
 const ProductsCard = (props) => {
 
-    const { img, rating, title, price } = props;
+    const { image, rating, title, price } = props;
 
     const { addItem } = useContext(cartContext);
 
@@ -30,7 +30,7 @@ const ProductsCard = (props) => {
         <>
             <div className="product_card">
                 <figure>
-                    <img src={img} alt="item-img" />
+                    <img src={image} alt="item-img" />
                 </figure>
                 <strong className="rating">{rating}</strong>
                 <h4 className="title">{title}</h4>

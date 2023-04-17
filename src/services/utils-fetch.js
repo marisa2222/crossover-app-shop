@@ -4,9 +4,7 @@ const utils = () => {
 
     const getProducts = async () => {
         try {
-            console.log("Hello from getProducts")
             const res = await fetch(URL+ "/product");
-            console.log(res);
             const json = await res.json();
             return json;
         }
