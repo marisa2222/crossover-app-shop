@@ -22,8 +22,8 @@ function App() {
           <Cart />
         </CartProvider>
       }/> 
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<SignupPage />} />
+      <Route path="user/login" element={<LoginPage />} />
+      <Route path="user/signUp" element={<SignupPage />} />
     </Routes>
     </>
   );

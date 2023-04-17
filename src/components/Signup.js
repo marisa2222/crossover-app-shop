@@ -1,4 +1,8 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
+import  Axios  from "axios";
+import useAuth from '../hooks/useAuth';
+
+
 
 function SignupPage() {
     const [email, setEmail] = useState("");
