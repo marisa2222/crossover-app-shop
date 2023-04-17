@@ -1,13 +1,11 @@
 import React from "react";
 import { CartProvider } from "./context/cartContext";
-
 import Home from "./pages/Home";
-
 import Checkout from "./pages/Checkout";
 import { Link, Routes, Route } from "react-router-dom";
 import LoginPage from './components/Login';
 import SignupPage from './components/Signup';
-import { Route, Routes } from 'react-router-dom';
+
 
 
 function App() {
