@@ -71,13 +71,13 @@ const Cart = () => {
                 <h2>Cart is empty</h2>
               ) : (
                 cartItems.map((item) => {
-                  const { id, img, title, price, quantity } = item;
+                  const { id, image, title, price, quantity } = item;
                   const itemTotal = price * quantity;
 
                   return (
                     <div className="cart_items" key={id}>
                       <figure className="cart_items_img">
-                        <img src={img} alt="product-img" />
+                        <img src={image} alt="product-img" />
                       </figure>
 
                       <div className="cart_items_info">
