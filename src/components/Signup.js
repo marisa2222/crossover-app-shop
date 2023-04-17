@@ -1,33 +1,32 @@
 import React, { useRef, useState } from "react";
-import  Axios  from "axios";
-import useAuth from '../hooks/useAuth';
-
+import Axios  from "axios";
 
 
 function SignupPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const emailRef = useRef();
+    const passwordRef = useRef();
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+    const emailValue = emailRef.current.value;
+    const passwordValue = passwordRef.current.value;
 
-        const response = await fetch("/api/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email, password }),
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            localStorage.setItem("token", data.token);
-            // Redirect to main app page
-        } else {
-            const error = await response.text();
-            console.error(error);
-            // Display error message
+    try {
+        const response = await Axios.post(
+        "https://crossover-shop-api-gr2.onrender.com/user/signUp",
+        {
+            email: emailValue,
+            password: passwordValue,
         }
+    );
+        console.log(response);
+    
+    } catch (error) {
+        console.log(error);
+    }
     };
 
     return (
@@ -38,6 +37,7 @@ function SignupPage() {
                     className="login-input"
                     type="email"
                     value={email}
+                    ref={emailRef}
                     onChange={(e) => setEmail(e.target.value)}
                 />
             </label>
@@ -47,6 +47,7 @@ function SignupPage() {
                     className="login-input"
                     type="password"
                     value={password}
+                    ref={passwordRef}
                     onChange={(e) => setPassword(e.target.value)}
                 />
             </label>

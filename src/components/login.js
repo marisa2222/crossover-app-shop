@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { redirect, Link } from "react-router-dom";
+import Axios  from "axios";
+
 
 function LoginPage() {
     const [email, setEmail] = useState("");
@@ -7,31 +9,27 @@ function LoginPage() {
     const [emailError, setEmailError] = useState("");
     const [passwordError, setPasswordError] = useState("");
 
+    const emailRef = useRef();
+    const passwordRef = useRef();
+
     const handleSubmit = async (e) => {
-        setEmailError("");
-        setPasswordError("");
         e.preventDefault();
-        if(!email ||!password) setPasswordError('please fill in all fields')
-        if(password.length < 6) setPasswordError('password must be at least 6 characters')
+    const emailValue = emailRef.current.value;
+    const passwordValue = passwordRef.current.value;
 
-        const response = await fetch("/user", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ email, password }),
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            localStorage.setItem("token", data.token);
-            // Redirect to main app page
-            redirect('/')
-        } else {
-            const error = await response.text();
-            console.error(error);
-            // Display error message
+    try {
+        const response = await Axios.post(
+        "https://crossover-shop-api-gr2.onrender.com/user/login",
+        {
+            email: emailValue,
+            password: passwordValue,
         }
+    );
+        console.log(response);
+
+    } catch (error) {
+        console.log(error);
+    }
     };
 
     return (
@@ -42,6 +40,7 @@ function LoginPage() {
                     className="login-input"
                     type="email"
                     value={email}
+                    ref={emailRef}
                     onChange={(e) => setEmail(e.target.value)}
                 />
             </label>
@@ -52,6 +51,7 @@ function LoginPage() {
                     className="login-input"
                     type="password"
                     value={password}
+                    ref={passwordRef}
                     onChange={(e) => setPassword(e.target.value)}
                 />
             </label>

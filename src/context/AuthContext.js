@@ -58,12 +58,11 @@ const AuthStateContext = ({ children }) => {
         setLoading(false);
     }
 
-    const signUpUser = async (name, email, password) => {
+    const signUpUser = async ( email, password) => {
         try {
             setLoading(true);
 
             const { data: token } = await axios.post(`${API_URL}/jwt/signup`, {
-                name: name,
                 email: email,
                 password: password,
             })
