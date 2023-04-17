@@ -10,8 +10,8 @@ const cartReducer = (state, action) => {
 
 
         case 'ADD_TO_CART':
-            const newItemId = action.payload.item.id;
-            const itemExist = state.cartItems.some(item => item.id === newItemId);
+            const newItemId = action.payload.item._id;
+            const itemExist = state.cartItems.some(item => item._id === newItemId);
 
             let updatedCartItems = null;
 
