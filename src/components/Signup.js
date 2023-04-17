@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function LoginPage() {
+function SignupPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
@@ -46,9 +46,9 @@ function LoginPage() {
                     onChange={(e) => setPassword(e.target.value)}
                 />
             </label>
-            <button className="form-button" type="submit">Log In!</button>
+            <button className="form-button" type="submit">Sign up!</button>
         </form>
     );
 }
 
-export default LoginPage;
+export default SignupPage;
