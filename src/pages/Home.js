@@ -9,9 +9,10 @@ import utils from '../services/utils-fetch.js';
 
 const Home = () => {
     const [products, setProducts] = useState([]);
+    const { getProducts } = utils();
 
     useEffect(() => {
-        utils.getProducts().then(data => {
+        getProducts().then(data => {
             console.log(data);
             setProducts(data);
         });
@@ -24,7 +25,7 @@ const Home = () => {
                 <div className="container">
                     <div className="home_content">
                         {
-                            products.map((item) => (
+                            productsData.map((item) => (
                                 <ProductsCard key={item.id} {...item} />
                             ))
                         }
