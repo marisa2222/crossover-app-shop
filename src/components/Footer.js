@@ -15,7 +15,7 @@ const Footer = () => {
                     </a>
 
                     <p>
-                        Built by | &nbsp;
+                        Group2 Created this Application | &nbsp;
                         <a
                             href=""
                             target="_blank"
