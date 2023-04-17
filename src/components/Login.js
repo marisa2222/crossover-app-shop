@@ -57,7 +57,7 @@ function LoginPage() {
             </label>
             <div class="form-error">{passwordError}</div>
             <button className="form-button" type="submit">Log In!</button>
-            <div className="form-redirect"><h3>New to us? <Link className="form-link" to='/signup'>Sign Up!</Link></h3></div>
+            <div className="form-redirect"><h3>New to us? <Link className="form-link" to='/user/signUp'>Sign Up!</Link></h3></div>
         </form>
     );
 }

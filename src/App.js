@@ -5,6 +5,7 @@ import Checkout from "./pages/Checkout";
 import { Link, Routes, Route } from "react-router-dom";
 import LoginPage from './components/Login';
 import SignupPage from './components/Signup';
+import ProtectedRoutes from "../src/ProtectedRoutes";
 
 
 
